@@ -1,5 +1,11 @@
 #include <iostream>
 using namespace std;
+void title() {
+  cout << "\n\t -----------------------------------------\n";
+  cout << "\n\t        Student Management System";
+  cout << endl;
+  cout << "\n\t -----------------------------------------\n";
+}
 
 class Student {
 private:
@@ -14,18 +20,18 @@ private:
 
 public:
   void input() {
-    cout << "Enter Your Roll No.: ";
+    cout << "\n\t Enter Your Roll No.: ";
     cin >> rollNo;
-    cout << "Enter Your Name: ";
-    cin.ignore();
+    cout << "\n\t Enter Your Name: ";
     getline(cin, name);
-    cout << "Enter Marks for Math: ";
+    
+    cout << "\n\t Enter Marks for Math: ";
     cin >> math;
-    cout << "Enter Marks for Science: ";
+    cout << "\n\t Enter Marks for Science: ";
     cin >> science;
-    cout << "Enter Marks for English: ";
+    cout << "\n\t Enter Marks for English: ";
     cin >> english;
-    cout << "Enter Marks for History: ";
+    cout << "\n\t Enter Marks for History: ";
     cin >> history;
 
     percentage = (math + science + english + history) / 4.0;
@@ -35,38 +41,39 @@ public:
     } else {
       result = "Fail";
     }
-    }
-  
-    void output() {
-      cout << "Roll No.: " << rollNo << endl;
-      cout << "Name: " << name << endl;
-      cout << "Math: " << math << endl;
-      cout << "Science: " << science << endl;
-      cout << "English: " << english << endl;
-      cout << "History: " << history << endl;
-      cout << "Percentage: " << percentage << "%" << endl;
-      cout << "Result: " << result << endl;
-    }
-  };
-  
-  int main() {
-    int numStudents;
-    cout << "Enter the number of students: ";
-    cin >> numStudents;
-  
-    Student students[numStudents];
-  
-    for (int i = 0; i < numStudents; i++) {
-      cout << "\nEnter details for student " << i + 1 << ":\n";
-      students[i].input();
-    }
-  
-    cout << "\nStudent details:\n";
-    for (int i = 0; i < numStudents; i++) {
-      cout << "-----------------------------------------\n";
-      students[i].output();
-      cout << "-----------------------------------------\n";
-    }
-  
-    return 0;
   }
+
+  void output() {
+    cout << "\n\t Roll No.: " << rollNo << endl;
+    cout << "\n\t Name: " << name << endl;
+    cout << "\n\t Math: " << math << endl;
+    cout << "\n\t Science: " << science << endl;
+    cout << "\n\t English: " << english << endl;
+    cout << "\n\t History: " << history << endl;
+    cout << "\n\t Percentage: " << percentage << "%" << endl;
+    cout << "\n\t Result: " << result << endl;
+  }
+};
+
+int main() {
+  title();
+  int numStudents;
+  cout << "\n\t Enter the number of students: ";
+  cin >> numStudents;
+
+  Student students[numStudents];
+
+  for (int i = 0; i < numStudents; i++) {
+    cout << "\n\t Enter details for student " << i + 1 << ":\n";
+    students[i].input();
+  }
+
+  cout << "\nStudent details:\n";
+  for (int i = 0; i < numStudents; i++) {
+    cout << "-----------------------------------------\n";
+    students[i].output();
+    cout << "-----------------------------------------\n";
+  }
+
+  return 0;
+}
